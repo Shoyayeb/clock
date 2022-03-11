@@ -1,95 +1,44 @@
 import React from 'react';
-
+import { HashLink } from 'react-router-hash-link';
+import bannerImage from '../../../Assets/banner.png';
 const Banner = () => {
     return (
-        <div className="relative bg-white overflow-hidden">
-            <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
-                    <div className="sm:max-w-lg">
-                        <h1 className="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-                            Summer styles are finally here
-                        </h1>
-                        <p className="mt-4 text-xl text-gray-500">
-                            This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care
-                            if you live or die.
-                        </p>
+        <div id="home" className="bg-white items-center overflow-hidden">
+            <div className="sm:container mx-auto px-6 sm:flex sm:flex-row flex-col py-16">
+                <div className="sm:w-2/3 lg:w-3/6 flex flex-col">
+                    <span className="w-20 h-2 bg-gray-800 md:mb-12"></span>
+                    <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none  text-gray-800">
+                        Time Matters
+                        <span className="text-5xl sm:text-5xl">More than ever</span>
+                    </h1>
+                    <p className="text-sm sm:text-base text-gray-700 ">
+                        Discover watches you've never seen before. O'Clock offers the most unique and cool watches. Shop for both men's watches and women's watches.
+                    </p>
+                    <div className="flex mt-8">
+                        <HashLink
+                            to="/home#services"
+                            className="uppercase py-2 px-4 rounded-lg bg-gray-500 border-2 border-transparent text-white text-md mr-4 hover:bg-gray-400"
+                        >
+                            Shop Now
+                        </HashLink>
+                        <HashLink
+                            to="/home#features"
+                            className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-gray-500 text-gray-500  hover:bg-gray-500 hover:text-white text-md"
+                        >
+                            Contact Sales
+                        </HashLink>
                     </div>
-                    <div>
-                        <div className="mt-10">
-                            {/* Decorative image grid */}
-                            <div
-                                aria-hidden="true"
-                                className="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full"
-                            >
-                                <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                                    <div className="flex items-center space-x-6 lg:space-x-8">
-                                        <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                            <div className="w-44 h-64 rounded-lg overflow-hidden">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
-                                                    alt=""
-                                                    className="w-full h-full object-center object-cover"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
 
-                            <a
-                                href="#"
-                                className=" text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700"
-                            >
-                                Shop Collection
-                            </a>
-                        </div>
-                    </div>
+                <div className="hidden sm:block sm:w-1/3 lg:w-3/6 ">
+                    <img
+                        src={bannerImage}
+                        alt="banner"
+                        className="max-w-xs md:max-w-lg m-auto"
+                    />
+                </div>
+                <div className="sm:hidden flex justify-center items-center my-4">
+                    <img src={bannerImage} alt="banner" className="max-w-xs" />
                 </div>
             </div>
         </div>

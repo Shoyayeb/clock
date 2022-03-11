@@ -6,10 +6,10 @@ import logo from "../../../Assets/logo.png";
 const Navbar = () => {
     const navigation = [
         { name: "Home", to: "/home", current: true },
-        { name: "Services", to: "/services", current: false },
-        { name: "Hire Someone", to: "/hire_single", current: false },
-        { name: "About Us", to: "/dashboard", current: false },
-        { name: "Contact Us", to: "/login", current: false },
+        { name: "Shop", to: "/shop", current: false },
+        { name: "Offers", to: "/offers", current: false },
+        { name: "About Us", to: "/home#about", current: false },
+        { name: "Contact Us", to: "/home#contact", current: false },
     ];
     function classNames(...classes) {
         return classes.filter(Boolean).join(" ");
@@ -70,7 +70,7 @@ const Navbar = () => {
                                 <Link
                                     to="/login"
                                     type="button"
-                                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                                 >
                                     <span className="sr-only">View notifications</span>
                                     Sign In
