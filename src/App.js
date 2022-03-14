@@ -4,6 +4,7 @@ import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
+import Register from './Pages/Register/Register';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
