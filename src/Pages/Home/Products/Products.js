@@ -19,9 +19,9 @@ const Products = () => {
     return (
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {loading ? <Spinner /> : products.map((product) => (
-                <div key={product._id} className="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div key={product._id} className="max-w-sm bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img className="p-8 rounded-t-lg" src={product.imagelink} alt="product" />
+                        <img className=" rounded-t-lg" src={product.imagelink} alt="product" />
                     </a>
                     <div className="px-5 pb-5">
                         <a href="#">
