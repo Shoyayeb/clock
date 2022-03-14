@@ -24,7 +24,7 @@ const AddProduct = () => {
             // setError("Please enter your information correctly");
         } else {
             axios
-                .post("http://localhost:4000/addproduct", productData)
+                .post("https://o-clock.herokuapp.com/addproduct", productData)
                 .then(function (res) {
                     setAdded(true);
                 })
