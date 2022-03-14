@@ -1,7 +1,10 @@
 import { LockClosedIcon } from '@heroicons/react/outline';
 import React from 'react';
+import useAuth from './../../Hooks/useAuth';
 
 const Register = () => {
+    const { socialSignIn } = useAuth();
+
     return (
         <div>
             <div className="h-screen bg-gradient-to-tl from-gray-100 to-gray-300 w-full py-8 px-4">
@@ -26,7 +29,7 @@ const Register = () => {
                         <div className="md:flex justify-between md:gap-7">
                             <div className=" my-3 md:w-2/5 md:flex-1">
                                 <button
-                                    // onClick={() => handleLogin("google")}
+                                    onClick={() => socialSignIn("google")}
                                     aria-label=""
                                     className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-green-500 py-3.5 px-4 border rounded-lg border-green-500 flex items-center w-full mt-10"
                                 >
@@ -59,7 +62,7 @@ const Register = () => {
                                     </p>
                                 </button>
                                 <button
-                                    // onClick={() => handleLogin("github")}
+                                    onClick={() => socialSignIn("github")}
                                     aria-label="Continue with github"
                                     className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-green-500 py-3.5 px-4 border rounded-lg border-green-500 flex items-center w-full mt-4"
                                 >

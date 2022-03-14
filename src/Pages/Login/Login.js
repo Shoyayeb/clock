@@ -1,7 +1,9 @@
 import { LockClosedIcon } from '@heroicons/react/outline';
 import React from 'react';
+import useAuth from './../../Hooks/useAuth';
 
 const Login = () => {
+    const { socialSignIn } = useAuth();
     return (
         <div>
 

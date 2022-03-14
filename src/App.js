@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AuthProvider from './Context/AuthProvider/AuthProvider';
 import AddProduct from './Pages/DashBoard/AddProduct/AddProduct';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
@@ -9,7 +10,8 @@ import Navbar from './Pages/Shared/Navbar/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <AuthProvider>
+      <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,6 +22,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
+    </AuthProvider>
+
   );
 }
 
