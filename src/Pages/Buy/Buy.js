@@ -53,8 +53,9 @@ const Buy = () => {
     return (
         <div>
             {loading ? <Spinner /> : <div className="mt-10 sm:mt-8 mx-8 my-8 rounded-md md:px-6 md:py-4 shadow-md">
-                <div className="md:grid md:grid-cols-4 md:gap-6">
-                    <div className="md:col-span-2">
+                <div className="md:flex md:justify-center md:items-center md:gap-6">
+                    {/* <div className="md:grid md:grid-cols-4 md:gap-6"> */}
+                    <div className="md:w-1/2">
                         <div className="px-4 sm:px-0 flex flex-col justify-center items-center">
                             <h3 className="text-4xl font-bold leading-6 text-gray-900">
                                 {foodData.foodname}
@@ -62,14 +63,14 @@ const Buy = () => {
                             <img
                                 src={foodData.imagelink}
                                 alt={foodData.foodname}
-                                className="w-5/6 my-4 rounded-lg"
+                                className="w-4/6  my-4 rounded-lg"
                             />
                             <p className="mt-1 text-xl text-gray-700">
                                 {foodData.description}
                             </p>
                         </div>
                     </div>
-                    <div className="mt-5 md:mt-0 md:col-span-2 ">
+                    <div className="mt-5 md:mt-0 md:w-1/2 ">
                         <form onSubmit={handleBookService}>
                             <div className=" overflow-hidden sm:rounded-md">
                                 <div className="px-4 py-5 bg-white sm:p-6">

@@ -11,7 +11,7 @@ initializeFirebase();
 
 const useFirebase = () => {
   const [user, setUser] = useState([]);
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setIsLoading] = useState(true);
   const [modal, setModal] = useState(false);
   const [error, setError] = useState("");
   const auth = getAuth();
@@ -94,6 +94,7 @@ const useFirebase = () => {
         console.log(user);
       } else {
         setUser({});
+        console.log(user);
       }
       setIsLoading(false);
     });
