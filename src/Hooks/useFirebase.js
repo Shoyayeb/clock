@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -14,6 +15,7 @@ const useFirebase = () => {
   const [loading, setIsLoading] = useState(true);
   const [modal, setModal] = useState(false);
   const [error, setError] = useState("");
+  const [admin, setAdmin] = useState({});
 
   const auth = getAuth();
   auth.useDeviceLanguage();
@@ -33,6 +35,7 @@ const useFirebase = () => {
           displayName: name,
           photoURL: "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
         });
+        saveUser(email, name, "post");
       })
       .catch((error) => {
         setError(error.message);
@@ -65,6 +68,7 @@ const useFirebase = () => {
       return signInWithPopup(auth, googleProvider)
         .then((result) => {
           setError("");
+          saveUser(result.user.email, result.user.displayName, "put");
         })
         .catch((error) => {
           setError(error.message);
@@ -77,6 +81,7 @@ const useFirebase = () => {
       return signInWithPopup(auth, githubProvider)
         .then((result) => {
           setError("");
+          saveUser(result.user.email, result.user.displayName, "put");
         })
         .catch((error) => {
           setError(error.message);
@@ -87,20 +92,6 @@ const useFirebase = () => {
         });
     }
   };
-  // managing user
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        console.log(user);
-      } else {
-        setUser({});
-        console.log(user);
-      }
-      setIsLoading(false);
-    });
-    return () => unsubscribe;
-  }, [auth]);
 
   // sign out
   const signOutUser = () => {
@@ -117,6 +108,34 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  // saving admin to DB
+  const saveUser = (email, displayName, method) => {
+    const url = "https://o-clock.herokuapp.com/adduser";
+    const data = { email, displayName };
+    axios({ method, url, data });
+  };
+
+  // managing user
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        console.log(user);
+      } else {
+        setUser({});
+        console.log(user);
+      }
+      setIsLoading(false);
+    });
+    return () => unsubscribe;
+  }, [auth]);
+
+  useEffect(() => {
+    const url = `https://o-clock.herokuapp.com/users/${user.email}`;
+    axios.get(url).then((data) => {
+      setAdmin(data.data);
+    });
+  }, [user]);
 
   return {
     user,
@@ -125,6 +144,8 @@ const useFirebase = () => {
     loading,
     setIsLoading,
     modal,
+    admin,
+    setAdmin,
     setModal,
     loginUserByEmail, createUserByEmail,
     socialSignIn,

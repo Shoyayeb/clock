@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NotFound from '../../NotFound/NotFound';
 import AdminRoute from '../../Shared/AdminRoute/AdminRoute';
+import AddAdmin from '../AddAdmin/AddAdmin';
 import AddProduct from '../AddProduct/AddProduct';
 import DashBoardHome from '../DashBoardHome/DashBoardHome';
 import DashBoardNavBar from '../DashBoardNavBar/DashBoardNavBar';
@@ -19,6 +20,14 @@ const DashBoard = () => {
                             element={
                                 <AdminRoute>
                                     <AddProduct />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route
+                            path="/addadmin"
+                            element={
+                                <AdminRoute>
+                                    <AddAdmin />
                                 </AdminRoute>
                             }
                         />
