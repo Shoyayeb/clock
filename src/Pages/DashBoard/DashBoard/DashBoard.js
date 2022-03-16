@@ -1,12 +1,34 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import NotFound from '../../NotFound/NotFound';
+import AdminRoute from '../../Shared/AdminRoute/AdminRoute';
+import AddProduct from '../AddProduct/AddProduct';
+import DashBoardHome from '../DashBoardHome/DashBoardHome';
 import DashBoardNavBar from '../DashBoardNavBar/DashBoardNavBar';
 
 const DashBoard = () => {
     return (
-        <div>
-            <DashBoardNavBar />
+        <main className="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
+            <div className="flex items-start justify-between">
+                <DashBoardNavBar />
+                <div className="w-full md:space-y-4 md:px-4 md:py-3">
+                    <Routes>
+                        <Route path="/" element={<DashBoardHome />} />
+                        <Route
+                            path="/addservice"
+                            element={
+                                <AdminRoute>
+                                    <AddProduct />
+                                </AdminRoute>
+                            }
+                        />
 
-        </div>
+                        {/* <Route path="/users" element={<UsersList />} /> */}
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </div>
+            </div>
+        </main>
     );
 };
 

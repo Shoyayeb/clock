@@ -14,6 +14,7 @@ const useFirebase = () => {
   const [loading, setIsLoading] = useState(true);
   const [modal, setModal] = useState(false);
   const [error, setError] = useState("");
+
   const auth = getAuth();
   auth.useDeviceLanguage();
 
@@ -98,7 +99,7 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
-    return () => unsubscribe();
+    return () => unsubscribe;
   }, [auth]);
 
   // sign out
